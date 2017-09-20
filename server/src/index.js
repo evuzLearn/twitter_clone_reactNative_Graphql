@@ -1,36 +1,36 @@
 /* eslint-disable no-console */
 
-import express from "express";
-import { graphiqlExpress, graphqlExpress } from "apollo-server-express";
-import { makeExecutableSchema } from "graphql-tools";
-import bodyParser from "body-parser";
-import { createServer } from "http";
+import express from 'express';
+import { graphiqlExpress, graphqlExpress } from 'apollo-server-express';
+import { makeExecutableSchema } from 'graphql-tools';
+import bodyParser from 'body-parser';
+import { createServer } from 'http';
 
-import constants from "./config/constants";
-import typeDefs from "./graphql/schema";
-import resolvers from "./graphql/resolvers";
-import mocks from "./mocks";
+import constants from './config/constants';
+import typeDefs from './graphql/schema';
+import resolvers from './graphql/resolvers';
+import mocks from './mocks';
 
-import "./config/db";
+import './config/db';
 
 const app = express();
 const schema = makeExecutableSchema({
   typeDefs,
-  resolvers
+  resolvers,
 });
 
 app.use(bodyParser.json());
 app.use(
-  "/graphiql",
+  '/graphiql',
   graphiqlExpress({
-    endpointURL: constants.GRAPHQL_PATH
-  })
+    endpointURL: constants.GRAPHQL_PATH,
+  }),
 );
 app.use(
   constants.GRAPHQL_PATH,
   graphqlExpress({
-    schema
-  })
+    schema,
+  }),
 );
 
 const graphQLServer = createServer(app);
