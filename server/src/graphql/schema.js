@@ -1,7 +1,15 @@
 export default `
+  scalar Date
+
   type Tweet {
-    _id: String
-    text: String
+    _id: String!
+    text: String!
+    createdAt: Date!
+    updateAt: Date!
+  }
+
+  type Status {
+    message: String!
   }
 
   type Query {
@@ -11,6 +19,8 @@ export default `
 
   type Mutation {
     createTweet(text: String!): Tweet
+    updateTweet(_id: ID!, text: String): Tweet
+    deleteTweet(_id: ID): Status
   }
 
   schema {
