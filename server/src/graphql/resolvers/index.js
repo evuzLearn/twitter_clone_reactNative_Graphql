@@ -1,7 +1,11 @@
-import TweetResovers from './tweet-resolvers';
+import TweetResolvers from './tweet-resolvers';
 
 export default {
   Query: {
-    getTweets: TweetResovers.getTweets,
+    getTweets: TweetResolvers.getTweets,
+    getTweet: TweetResolvers.getTweet
   },
+  Mutation: {
+    createTweet: TweetResolvers.createTweet
+  }
 };
