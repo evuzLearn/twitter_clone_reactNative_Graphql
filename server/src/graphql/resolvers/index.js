@@ -8,6 +8,7 @@ export default {
   Query: {
     getTweets: TweetResolvers.getTweets,
     getTweet: TweetResolvers.getTweet,
+    me: UserResolvers.me,
   },
   Mutation: {
     createTweet: TweetResolvers.createTweet,
