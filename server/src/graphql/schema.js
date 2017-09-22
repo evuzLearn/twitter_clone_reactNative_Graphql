@@ -30,6 +30,7 @@ export default `
   type Query {
     getTweets: [Tweet]
     getTweet(_id: ID!): Tweet
+    getUserTweets: [Tweet]
     me: User
   }
 
