@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components/native';
 
+// prettier-ignore
 const Root = styled.View`
   alignItems: center;
   justifyContent: center;
@@ -10,6 +11,7 @@ const Root = styled.View`
   alignSelf: center;
 `;
 
+// prettier-ignore
 const Text = styled.Text`
   color: ${props => props.theme.PRIMARY};
   fontSize: 18;

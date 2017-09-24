@@ -3,13 +3,14 @@ import styled from 'styled-components/native';
 
 import FeedCard from '../components/Feed/FeedCard';
 
+// prettier-ignore
 const Root = styled.View`
   flex: 1;
   justifyContent: center;
 `;
 
 class HomeScreen extends Component {
-  state = {  }
+  state = {};
   render() {
     return (
       <Root>
