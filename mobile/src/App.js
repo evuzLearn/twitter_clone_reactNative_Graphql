@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { store, client } from './store';
 import { colors } from './utils/constants';
 
-import Welcome from './components/Welcome';
+import HomeScreen from './screens/HomeScreen';
 
 if (UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
@@ -15,7 +15,7 @@ if (UIManager.setLayoutAnimationEnabledExperimental) {
 const App = () => (
   <ApolloProvider store={store} client={client}>
     <ThemeProvider theme={colors}>
-      <Welcome />
+      <HomeScreen />
     </ThemeProvider>
   </ApolloProvider>
 );
