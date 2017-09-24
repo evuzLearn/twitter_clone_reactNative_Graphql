@@ -4,10 +4,21 @@
   "main": "./src/index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js",
-    "prettier": "prettier --write 'src/**/*.js'"
+    "start": "npm run build && npm run serve",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold\" \"npm run watch-ts\" \"npm run serve:dev\"",
+    "build": "npm run tslint && npm run build-ts",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "prettier": "prettier --write 'src/**/*.ts'",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "serve": "node dist/index.js",
+    "serve:dev": "cross-env NODE_ENV=dev nodemon dist/index.js",
+    "serve-debug": "cross-env NODE_ENV=dev nodemon --inspect dist/index.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
   },
   "dependencies": {
+    "@types/faker": "^4.1.1",
+    "@types/graphql-date": "^1.0.1",
     "apollo-server-express": "^1.1.2",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.18.1",
@@ -22,12 +33,16 @@
     "nodemon": "^1.12.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "eslint": "^4.7.1",
-    "eslint-config-equimper": "^2.2.1",
-    "eslint-config-prettier": "^2.5.0",
-    "prettier": "^1.7.0"
+    "@types/bcrypt-nodejs": "^0.0.30",
+    "@types/body-parser": "^1.16.5",
+    "@types/express": "^4.0.37",
+    "@types/jsonwebtoken": "^7.2.3",
+    "@types/mongoose": "^4.7.23",
+    "@types/node": "^8.0.30",
+    "concurrently": "^3.5.0",
+    "prettier": "^1.7.0",
+    "tslint": "^5.7.0",
+    "tslint-config-prettier": "^1.5.0",
+    "typescript": "^2.5.2"
   }
 }
