@@ -1,6 +1,6 @@
-import jwt from 'jsonwebtoken';
+import * as jwt from 'jsonwebtoken';
 
-import User from '../models/User';
+import { User } from '../models/User';
 import constants from '../config/constants';
 
 export async function requireAuth(user) {

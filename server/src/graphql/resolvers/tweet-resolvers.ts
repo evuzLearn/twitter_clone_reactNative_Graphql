@@ -1,4 +1,4 @@
-import Tweet from '../../models/Tweet';
+import { Tweet } from '../../models/Tweet';
 import { requireAuth } from '../../services/auth';
 
 export default {

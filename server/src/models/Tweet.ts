@@ -1,4 +1,13 @@
-import mongoose, { Schema } from 'mongoose';
+import * as mongoose from 'mongoose';
+import { Schema, Model, Document } from 'mongoose';
+
+export interface ITweet {
+  text: string;
+  user: any;
+  favoriteCount: number;
+}
+
+export interface ITweetModel extends ITweet, Document {}
 
 const TweetSchema = new Schema(
   {
@@ -19,4 +28,7 @@ const TweetSchema = new Schema(
   { timestamps: true },
 );
 
-export default mongoose.model('Tweet', TweetSchema);
+export const Tweet: Model<ITweetModel> = mongoose.model<ITweetModel>(
+  'Tweet',
+  TweetSchema,
+);

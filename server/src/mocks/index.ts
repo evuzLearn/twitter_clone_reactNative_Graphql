@@ -1,6 +1,6 @@
-import faker from 'faker';
-import Tweet from '../models/Tweet';
-import User from '../models/User';
+import * as faker from 'faker';
+import { Tweet } from '../models/Tweet';
+import { User } from '../models/User';
 
 const TWEETS_TOTAL = 3;
 const USER_TOTAL = 3;
@@ -10,8 +10,8 @@ export default async () => {
     if (process.env.NODE_ENV === 'dev') {
       const tweets = await Tweet.find({});
       if (!tweets.length) {
-        await Tweet.remove();
-        await User.remove();
+        await Tweet.remove({});
+        await User.remove({});
 
         await Array.from({ length: USER_TOTAL }).forEach(async (_, i) => {
           const user = await User.create({

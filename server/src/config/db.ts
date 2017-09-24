@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
 
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
+
 import constants from './constants';
 
-mongoose.Promise = global.Promise;
+(<any>mongoose).Promise = global.Promise;
 
 mongoose.set('debug', process.env.NODE_ENV === 'dev');
 

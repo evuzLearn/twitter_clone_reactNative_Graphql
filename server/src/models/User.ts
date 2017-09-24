@@ -1,8 +1,24 @@
-import mongoose, { Schema } from 'mongoose';
-import jwt from 'jsonwebtoken';
+import * as mongoose from 'mongoose';
+import { Schema, Model, Document } from 'mongoose';
+import * as jwt from 'jsonwebtoken';
 import { hashSync, compareSync } from 'bcrypt-nodejs';
 
 import constants from '../config/constants';
+
+export interface IUser {
+  username: string;
+  firstName: String;
+  lastName: String;
+  avatar: String;
+  password: String;
+  email: String;
+}
+
+export interface IUserModel extends IUser, Document {
+  _hasPassword(password: string): string;
+  authenticateUser(password: string): boolean;
+  createToken(): string;
+}
 
 const UserSchema = new Schema(
   {
@@ -29,15 +45,18 @@ UserSchema.pre('save', function(next) {
 });
 
 UserSchema.methods = {
-  _hasPassword(password) {
+  _hasPassword(password: string): string {
     return hashSync(password);
   },
-  authenticateUser(password) {
+  authenticateUser(password: string): boolean {
     return compareSync(password, this.password);
   },
-  createToken() {
+  createToken(): string {
     return jwt.sign({ _id: this._id }, constants.JWT_SECRET);
   },
 };
 
-export default mongoose.model('User', UserSchema);
+export const User: Model<IUserModel> = mongoose.model<IUserModel>(
+  'User',
+  UserSchema,
+);

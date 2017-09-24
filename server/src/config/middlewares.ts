@@ -1,6 +1,6 @@
 import { graphiqlExpress, graphqlExpress } from 'apollo-server-express';
 import { makeExecutableSchema } from 'graphql-tools';
-import bodyParser from 'body-parser';
+import * as bodyParser from 'body-parser';
 
 import { decodeToken } from '../services/auth';
 import constants from '../config/constants';
@@ -17,9 +17,9 @@ async function auth(req, res, next) {
     const token = req.headers.authorization;
     if (token != null) {
       const user = await decodeToken(token);
-      req.user = user; // eslint-disable-line
+      req.user = user;
     } else {
-      req.user = null; // eslint-disable-line
+      req.user = null;
     }
     next();
   } catch (err) {
@@ -27,7 +27,7 @@ async function auth(req, res, next) {
   }
 }
 
-export default app => {
+export default (app) => {
   app.use(bodyParser.json());
   app.use(auth);
   app.use(
@@ -38,7 +38,7 @@ export default app => {
   );
   app.use(
     constants.GRAPHQL_PATH,
-    graphqlExpress(req => ({
+    graphqlExpress((req: any) => ({
       schema,
       context: {
         user: req.user,

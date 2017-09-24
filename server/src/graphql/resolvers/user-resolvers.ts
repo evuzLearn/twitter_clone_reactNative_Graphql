@@ -1,4 +1,4 @@
-import User from '../../models/User';
+import { User } from '../../models/User';
 import { requireAuth } from '../../services/auth';
 
 export default {

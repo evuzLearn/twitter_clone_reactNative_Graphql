@@ -1,4 +1,4 @@
-import GraphQLDate from 'graphql-date';
+import * as GraphQLDate from 'graphql-date';
 
 import TweetResolvers from './tweet-resolvers';
 import UserResolvers from './user-resolvers';

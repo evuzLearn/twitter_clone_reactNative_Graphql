@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import express from 'express';
+import * as express from 'express';
 import { createServer } from 'http';
 
 import constants from './config/constants';
@@ -14,7 +14,7 @@ const app = middlewares(express());
 const graphQLServer = createServer(app);
 
 mocks().then(() => {
-  graphQLServer.listen(constants.PORT, err => {
+  graphQLServer.listen(constants.PORT, (err: any) => {
     if (err) {
       console.log(err);
     } else {
