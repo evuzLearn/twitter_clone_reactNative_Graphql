@@ -6,15 +6,39 @@ import FeedCard from '../components/Feed/FeedCard';
 // prettier-ignore
 const Root = styled.View`
   flex: 1;
-  justifyContent: center;
+  paddingTop: 5;
+  backgroundColor: #f2f2f2;
 `;
+
+const List = styled.ScrollView``;
 
 class HomeScreen extends Component {
   state = {};
   render() {
     return (
       <Root>
-        <FeedCard />
+        <List>
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+        </List>
       </Root>
     );
   }

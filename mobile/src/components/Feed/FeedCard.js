@@ -9,10 +9,12 @@ const Root = styled.View`
   minHeight: 180;
   backgroundColor: ${props => props.theme.WHITE};;
   width: 100%;
+  padding: 7px;
   shadowColor: ${props => props.theme.SECONDARY};
   shadowOffset: 0px 2px;
   shadowRadius: 2;
   shadowOpacity: 0.1;
+  marginVertical: 5;
 `;
 
 // prettier-ignore
