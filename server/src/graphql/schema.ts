@@ -6,6 +6,8 @@ export default `
     text: String!
     createdAt: Date!
     updateAt: Date!
+    user: User
+    favoriteCount: Int
   }
 
   type User {
