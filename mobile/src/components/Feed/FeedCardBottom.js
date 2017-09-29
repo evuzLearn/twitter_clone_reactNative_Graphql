@@ -32,22 +32,29 @@ const ButtonText = styled.Text`
   color: ${props => props.theme.LIGHT_GRAY};
 `;
 
-const favoriteCount = 3;
 const isFavorite = false;
 
-const FeedCardBottom = () => (
+const FeedCardBottom = ({ favoriteCount }) => (
   <Root>
     <Button>
-      <SimpleLineIcons name="bubbles" size={ICON_SIZE} color={colors.LIGHT_GRAY} />
-      <ButtonText>{ favoriteCount }</ButtonText>
+      <SimpleLineIcons
+        name="bubbles"
+        size={ICON_SIZE}
+        color={colors.LIGHT_GRAY}
+      />
+      <ButtonText>{favoriteCount}</ButtonText>
     </Button>
     <Button>
       <Entypo name="retweet" size={ICON_SIZE} color={colors.LIGHT_GRAY} />
-      <ButtonText>{ favoriteCount }</ButtonText>
+      <ButtonText>{favoriteCount}</ButtonText>
     </Button>
     <Button>
-      <Entypo name="heart" size={ICON_SIZE} color={isFavorite ? 'red' : colors.LIGHT_GRAY} />
-      <ButtonText>{ favoriteCount }</ButtonText>
+      <Entypo
+        name="heart"
+        size={ICON_SIZE}
+        color={isFavorite ? 'red' : colors.LIGHT_GRAY}
+      />
+      <ButtonText>{favoriteCount}</ButtonText>
     </Button>
   </Root>
 );

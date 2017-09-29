@@ -9,6 +9,7 @@
 	"dependencies": {
 		"@appandflow/touchable": "^1.2.2",
 		"apollo-client": "^1.9.3",
+		"date-fns": "^1.28.5",
 		"react": "16.0.0-alpha.12",
 		"react-apollo": "^1.4.15",
 		"react-native": "0.48.3",
@@ -27,6 +28,7 @@
 		"eslint-config-prettier": "^2.5.0",
 		"jest": "21.1.0",
 		"prettier": "^1.7.0",
+		"react-native-debugger-open": "^0.3.12",
 		"react-test-renderer": "16.0.0-alpha.12",
 		"redux-devtools-extension": "^2.13.2"
 	},
