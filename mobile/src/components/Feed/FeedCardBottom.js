@@ -16,7 +16,8 @@ const Root = styled.View`
 
 // prettier-ignore
 const Button = styled(Touchable).attrs({
-  feedback: 'opacity'
+  feedback: 'opacity',
+  native: false,
 })`
   flex: 1;
   flexDirection: row;
